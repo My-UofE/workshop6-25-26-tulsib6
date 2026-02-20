@@ -9,7 +9,15 @@ public class Unchecked1App{
             s1 = args[0];
         }
 
-        s2 = s1.toUpperCase();
+        //s2 = s1.toUpperCase();
+
+        try {
+            s2 = s1.toUpperCase();
+        } catch (NullPointerException e) {
+            System.out.println("### Exception caught: " + e.getClass().getName()); 
+            System.out.println("### Exception message: " + e.getMessage()); 
+            {e.printStackTrace();}
+        }
         
         System.out.println("s1: " + s1);
         System.out.println("s2: " + s2);   
