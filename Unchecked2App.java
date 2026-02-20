@@ -18,9 +18,23 @@ public class Unchecked2App{
         System.out.println("### Exit methodA()!");
     }
 
-    static void methodB(String s1) {
+    /*static void methodB(String s1) {
         System.out.println("### Enter methodB() ...");
         String s2 = s1.toUpperCase();
+        System.out.println("s1: " + s1);   
+        System.out.println("s2: " + s2);   
+        System.out.println("### Exit methodB()!");
+    }*/
+
+    static void methodB(String s1) {
+        System.out.println("### Enter methodB() ...");
+        try {
+            String s2 = s1.toUpperCase();
+        } catch (NullPointerException e) {
+            System.out.println("### Exception caught: " + e.getClass().getName()); 
+            System.out.println("### Exception message: " + e.getMessage()); 
+            {e.printStackTrace();}
+        }
         System.out.println("s1: " + s1);   
         System.out.println("s2: " + s2);   
         System.out.println("### Exit methodB()!");
